@@ -1,5 +1,5 @@
 ---
-- name: Install OpenVPN
+- name: install openvpn
   apt:
     name: "openvpn={{ openvpn_version }}"
     state: installed
