@@ -1,3 +1,3 @@
 # ansible
 Run openvpn playbook:
-	- ansible-playbook -i inventory openvpn.yml
+Markup : * ansible-playbook -i inventory openvpn.yml
