@@ -4,7 +4,7 @@ OpenVPN
 This role installs OpenVPN and configures it as a client.
 
 Tested OS:
-	** Ubuntu Xenial (16.04)
+* Ubuntu Xenial (16.04)
 
 Requirements
 ------------
