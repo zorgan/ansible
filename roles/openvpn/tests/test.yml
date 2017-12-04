@@ -1,5 +1,0 @@
----
-- hosts: openvpn_target
-  remote_user: root
-  roles:
-    - openvpn
