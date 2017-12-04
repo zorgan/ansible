@@ -48,9 +48,6 @@ Example Playbook
 	  roles:
 	  - openvpn
 
-Run playbook:
-	*ansible-playbook -i openvpn/inventory/main.yml openvpn/openvpn_playbook.yml*
-
 License
 -------
 
