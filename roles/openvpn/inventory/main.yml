@@ -1,0 +1,2 @@
+[openvpn_target]
+192.168.56.103 ansible_user=ubuntu ansible_become=yes

@@ -1,0 +1,31 @@
+---
+- name: openvpn config folders exist
+  file:
+    path: "/etc/openvpn"
+    state: directory 
+    mode: 0755
+    owner: root
+    group: root
+  tags:
+    - openvpn
+
+- name: create openvpn config file
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+  with_items:
+    - "etc/openvpn/client.conf"
+  notify: openvpn restart
+  tags:
+    - openvpn
+
+- meta: flush_handlers
+
+- name: check openvpn status
+  service:
+    name: "openvpn@client.service"
+    state: started
+    enabled: yes
+  tags:
+    - openvpn
+

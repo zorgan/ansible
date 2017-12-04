@@ -1,0 +1,10 @@
+---
+- name: Install OpenVPN
+  apt:
+    name: "openvpn={{ openvpn_version }}"
+    state: installed
+    update_cache: yes
+    cache_valid_time: "{{ openvpn_cache_valid_time }}"
+  tags:
+    - openvpn
+

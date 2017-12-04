@@ -1,0 +1,12 @@
+---
+- name: Install OpenVPN
+  include: install.yml
+  tags:
+    - install
+
+- name: Configure OpenVPN
+  include: config.yml
+  tags:
+    - config
+
+

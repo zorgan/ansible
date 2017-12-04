@@ -1,0 +1,7 @@
+---
+- service:
+    name: "openvpn@{{ openvpn_conf_file }}.service"
+    state: started
+    enabled: yes
+  become: true
+
