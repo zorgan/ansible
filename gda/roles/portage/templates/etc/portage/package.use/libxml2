@@ -1,0 +1,7 @@
+# required by dev-util/itstool-2.0.2::gentoo
+# required by gnome-extra/yelp-xsl-3.20.1::gentoo
+# required by app-text/yelp-tools-3.18.0::gentoo
+# required by app-office/gnumeric-1.12.35::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-libs/libxml2-2.9.7 python

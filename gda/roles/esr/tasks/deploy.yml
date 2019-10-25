@@ -1,0 +1,19 @@
+---
+- name: insert/update "zone-pair" configuration block in l20-kszi-rfwvpn02-1
+  blockinfile:
+    path: /home/adminrspd/l20-kszi-rfwvpn02-1
+    block: "{{ lookup('file', './local/l20-kszi-rfwvpn02-1') }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK zone-pair"
+
+- name: insert/update "object-group service" configuration block in l20-kszi-rfwvpn02-1
+  blockinfile:
+    path: /home/adminrspd/l20-kszi-rfwvpn02-1
+    block: "{{ lookup('file', './local/l20-kszi-rfwvpn02-1_object-group-service') }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK object-group-service"
+
+- name: insert/update "object-group network" configuration block in l20-kszi-rfwvpn02-1
+  blockinfile:
+    path: /home/adminrspd/l20-kszi-rfwvpn02-1
+    block: "{{ lookup('file', './local/l20-kszi-rfwvpn02-1_object-group-network') }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK object-group-network"
+

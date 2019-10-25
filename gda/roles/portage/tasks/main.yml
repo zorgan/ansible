@@ -1,0 +1,10 @@
+---
+- name: Deploy wpad
+  include: deploy.yml
+  tags:
+    - deploy
+
+- name: Install packages
+  include: install.yml
+  tags:
+    - install

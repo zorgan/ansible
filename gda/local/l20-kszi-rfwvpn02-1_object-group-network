@@ -1,0 +1,567 @@
+object-group network Global_DHCP_Relay
+  description "DHCP Relay Agents and Clients"
+  ip address-range 192.168.101.1-192.168.101.3
+  ip address-range 192.168.102.1-192.168.102.3
+  ip address-range 192.168.103.1-192.168.103.3
+  ip address-range 192.168.104.1-192.168.104.3
+  ip address-range 192.168.105.1-192.168.105.3
+  ip address-range 192.168.106.1-192.168.106.3
+  ip address-range 192.168.107.1-192.168.107.3
+  ip address-range 192.168.108.1-192.168.108.3
+  ip address-range 192.168.109.1-192.168.109.3
+  ip address-range 192.168.110.1-192.168.110.3
+  ip address-range 192.168.111.1-192.168.111.3
+  ip address-range 192.168.112.1-192.168.112.3
+  ip address-range 192.168.113.1-192.168.113.3
+  ip address-range 192.168.114.1-192.168.114.3
+  ip address-range 192.168.115.1-192.168.115.3
+  ip address-range 192.168.116.1-192.168.116.3
+  ip address-range 192.168.117.1-192.168.117.3
+  ip address-range 192.168.118.1-192.168.118.3
+  ip address-range 192.168.119.1-192.168.119.3
+  ip address-range 192.168.120.1-192.168.120.3
+  ip address-range 192.168.121.1-192.168.121.3
+  ip address-range 192.168.122.1-192.168.122.3
+  ip address-range 192.168.123.1-192.168.123.3
+  ip address-range 192.168.124.1-192.168.124.3
+  ip address-range 192.168.125.1-192.168.125.3
+  ip address-range 192.168.126.1-192.168.126.3
+  ip address-range 192.168.127.1-192.168.127.3
+  ip address-range 192.168.128.1-192.168.128.3
+  ip address-range 192.168.129.1-192.168.129.3
+  ip address-range 192.168.130.1-192.168.130.3
+  ip address-range 192.168.131.1-192.168.131.3
+  ip address-range 192.168.132.1-192.168.132.3
+  ip address-range 192.168.133.1-192.168.133.3
+  ip address-range 192.168.134.1-192.168.134.3
+  ip address-range 192.168.135.1-192.168.135.3
+  ip address-range 192.168.136.1-192.168.136.3
+  ip address-range 192.168.137.1-192.168.137.3
+  ip address-range 192.168.138.1-192.168.138.3
+  ip address-range 192.168.139.1-192.168.139.3
+  ip address-range 192.168.140.1-192.168.140.3
+  ip address-range 192.168.141.1-192.168.141.3
+  ip address-range 192.168.142.1-192.168.142.3
+  ip address-range 192.168.143.1-192.168.143.3
+  ip address-range 192.168.144.1-192.168.144.3
+  ip address-range 192.168.145.1-192.168.145.3
+  ip address-range 192.168.146.1-192.168.146.3
+  ip prefix 10.25.0.0/16
+exit
+object-group network Global_DHCP
+  description "DHCP Servers"
+  ip address-range 10.25.8.2
+  ip address-range 10.25.10.4
+  ip address-range 10.25.150.165
+  ip address-range 10.25.150.166
+  ip address-range 10.25.161.54
+  ip address-range 10.25.161.55
+  ip address-range 10.25.163.61
+  ip address-range 10.25.163.62
+  ip address-range 10.25.164.165
+  ip address-range 10.25.174.46
+  ip address-range 10.25.226.108
+exit
+object-group network Global_Deny
+  description "Network and host access deny"
+  ip address-range 172.16.0.0-172.31.255.255
+  ip address-range 240.0.0.0-255.255.255.255
+  ip prefix 192.168.0.0/16
+  ip prefix 169.254.0.0/16
+  ip prefix 10.0.0.0/24
+exit
+object-group network Global_RSPDGDA
+  description "Network RSPD Gazprom dobycha Astrakhan"
+  ip prefix 10.25.0.0/16
+exit
+object-group network Global_KAV
+  description "Kasperskiy Servers"
+  ip address-range 10.25.158.5
+  ip address-range 10.25.154.5
+  ip address-range 10.25.153.5
+  ip address-range 10.25.152.5
+  ip address-range 10.25.156.11
+  ip address-range 10.25.155.4
+  ip address-range 10.25.164.168
+  ip address-range 10.25.150.168
+  ip address-range 10.25.19.100
+  ip address-range 10.25.163.73
+  ip address-range 10.25.226.107
+  ip address-range 10.25.164.130
+exit
+object-group network Global_ADControllers
+  description "Servers AD Controller"
+  ip address-range 10.25.163.7
+  ip address-range 10.25.163.8
+  ip address-range 10.25.160.135
+  ip address-range 10.25.160.136
+  ip address-range 10.25.169.6
+  ip address-range 10.25.10.3
+  ip address-range 10.25.150.165
+  ip address-range 10.25.150.166
+  ip address-range 10.25.169.35
+exit
+object-group network Global_WSUS
+  description "Servers WSUS"
+  ip address-range 10.25.163.17
+  ip address-range 10.25.161.83
+  ip address-range 10.25.165.74
+  ip address-range 10.25.150.169
+  ip address-range 10.25.164.171
+  ip address-range 10.25.164.131
+  ip address-range 10.25.44.36
+  ip address-range 10.25.42.8
+  ip address-range 10.25.169.10
+exit
+object-group network Global_Kiosk
+  description "OPO Kiosk"
+  ip prefix 10.25.46.104/30
+  ip prefix 10.25.46.108/30
+  ip prefix 10.25.46.112/30
+  ip prefix 10.25.46.116/30
+  ip prefix 10.25.87.0/29
+  ip prefix 10.25.91.0/29
+  ip prefix 10.25.95.0/29
+  ip prefix 10.25.112.32/29
+  ip prefix 10.25.112.40/30
+  ip prefix 10.25.112.44/30
+  ip prefix 10.25.112.48/30
+  ip prefix 10.25.112.52/30
+  ip prefix 10.25.112.56/30
+  ip prefix 10.25.112.60/30
+  ip prefix 10.25.112.64/30
+  ip prefix 10.25.112.68/30
+  ip prefix 10.25.112.72/30
+  ip prefix 10.25.112.76/30
+  ip prefix 10.25.112.112/29
+  ip prefix 10.25.112.120/29
+exit
+object-group network Global_ServersKiosk
+  description "OPO Servers Kiosk"
+  ip address-range 10.25.163.66
+  ip address-range 10.25.174.211
+  ip address-range 10.25.163.11
+exit
+object-group network Global_SecureARM
+  description "ARM on Private Network"
+  ip prefix 10.25.47.0/24
+exit
+object-group network Global_SecureARM_CKV
+  description "ARM on Private Network Reklamnay Slujba"
+  ip prefix 10.25.47.8/29
+exit
+object-group network Global_SecureARM_ACG2
+  description "ARM on Private Network SIUS"
+  ip prefix 10.25.47.16/28
+exit
+object-group network Global_Proxy
+  description "Servers for access to Internet"
+  ip address-range 10.25.254.5
+  ip address-range 10.25.254.9
+  ip prefix 10.25.178.32/27
+exit
+object-group network Global_RegionMedia
+  description "Servers Region Media"
+  ip address-range 91.208.161.14
+  ip address-range 91.208.161.18
+exit
+object-group network Global_ServerSOPDevel
+  description "Servers SOP for Development"
+  ip address-range 10.25.144.117
+exit
+object-group network Global_EVSPD
+  description "EVSPD"
+  ip prefix 10.0.0.0/8
+exit
+object-group network Global_Mail
+  description "Mail Servers GDA"
+  ip address-range 10.25.161.26
+  ip address-range 10.25.163.63
+  ip address-range 10.25.161.71
+  ip address-range 10.25.163.28
+exit
+object-group network Global_Print
+  description "Servers Print"
+  ip address-range 10.25.161.37
+  ip address-range 10.25.161.32
+  ip address-range 10.25.163.14
+  ip address-range 10.25.163.18
+  ip address-range 10.25.169.2
+  ip address-range 10.25.45.23
+  ip address-range 10.25.164.165
+  ip address-range 10.25.164.166
+  ip address-range 10.25.45.6
+  ip address-range 10.25.150.167
+  ip address-range 10.25.150.169
+  ip address-range 10.25.8.12
+  ip address-range 10.25.8.13
+  ip address-range 10.25.8.14
+  ip address-range 10.25.161.51
+  ip address-range 10.25.165.74
+  ip address-range 10.25.167.195
+exit
+object-group network Global_BlockHostMDZ
+  description "Servers Block Host MDZ"
+  ip address-range 10.25.156.13
+exit
+object-group network Global_NetManServers
+  description "Network Management Servers"
+  ip address-range 10.25.131.31
+  ip address-range 10.25.131.37
+  ip address-range 10.25.131.40
+  ip address-range 10.25.180.102
+  ip address-range 10.25.180.101
+  ip address-range 10.25.156.39
+  ip address-range 10.25.114.81
+  ip address-range 10.25.131.253
+  ip prefix 10.25.45.32/28
+  ip prefix 10.25.45.48/28
+  ip prefix 10.25.174.32/28
+  ip prefix 10.25.226.96/28
+exit
+object-group network Global_ServersGDA
+  description "All Servers SOP and IS Gazprom dobycha Astrakhan"
+  ip address-range 10.25.8.16
+  ip address-range 10.25.73.57
+  ip address-range 10.25.241.160
+  ip address-range 10.25.241.169
+  ip address-range 10.25.241.184
+  ip prefix 10.25.112.0/28
+  ip prefix 10.25.144.0/25
+  ip prefix 10.25.150.160/28
+  ip prefix 10.25.152.0/26
+  ip prefix 10.25.153.0/26
+  ip prefix 10.25.153.192/26
+  ip prefix 10.25.154.0/26
+  ip prefix 10.25.155.0/26
+  ip prefix 10.25.156.0/26
+  ip prefix 10.25.156.192/26
+  ip prefix 10.25.156.64/26
+  ip prefix 10.25.158.0/26
+  ip prefix 10.25.16.0/21
+  ip prefix 10.25.160.0/26
+  ip prefix 10.25.160.128/26
+  ip prefix 10.25.160.64/26
+  ip prefix 10.25.161.0/24
+  ip prefix 10.25.162.0/26
+  ip prefix 10.25.162.128/26
+  ip prefix 10.25.162.64/26
+  ip prefix 10.25.163.0/24
+  ip prefix 10.25.164.128/27
+  ip prefix 10.25.164.160/27
+  ip prefix 10.25.165.64/26
+  ip prefix 10.25.166.128/26
+  ip prefix 10.25.167.192/29
+  ip prefix 10.25.169.0/27
+  ip prefix 10.25.169.32/27
+  ip prefix 10.25.169.64/29
+  ip prefix 10.25.174.192/29
+  ip prefix 10.25.174.200/29
+  ip prefix 10.25.174.208/29
+  ip prefix 10.25.174.224/29
+  ip prefix 10.25.174.248/29
+  ip prefix 10.25.174.64/29
+  ip prefix 10.25.240.248/29
+  ip prefix 10.25.254.0/27
+  ip prefix 10.25.254.64/27
+  ip prefix 10.25.254.96/27
+  ip prefix 10.25.26.0/24
+  ip prefix 10.25.27.0/24
+  ip prefix 10.25.45.0/28
+  ip prefix 10.25.45.16/28
+  ip prefix 10.25.91.32/27
+  ip prefix 10.25.131.128/26
+  ip prefix 10.25.179.0/24
+exit
+object-group network Global_ServersMon
+  description "Servers Monitoring Servers"
+  ip address-range 10.25.161.10
+  ip address-range 10.25.163.17
+  ip address-range 10.25.161.11
+  ip address-range 10.25.161.31
+exit
+object-group network Global_AdminServers
+  description "Administrators Servers"
+  ip prefix 10.25.45.96/28
+  ip prefix 10.25.45.112/28
+exit
+object-group network Global_ESXi
+  description "ESXi hosts and Servers"
+  ip address-range 10.25.169.4
+  ip address-range 10.25.45.20
+  ip address-range 10.25.150.179
+  ip address-range 10.25.150.180
+  ip address-range 10.25.128.13
+  ip address-range 10.25.4.78
+  ip address-range 10.25.4.79
+  ip address-range 10.25.4.80
+  ip address-range 10.25.4.81
+  ip address-range 10.25.4.83
+  ip address-range 10.25.4.103
+  ip address-range 10.25.4.104
+  ip address-range 10.25.4.105
+  ip address-range 10.25.163.47
+  ip address-range 10.25.4.67
+  ip address-range 10.25.4.86
+  ip address-range 10.25.48.15
+  ip address-range 10.25.29.9
+  ip prefix 10.25.153.192/26
+  ip prefix 10.25.156.192/26
+  ip prefix 10.25.185.208/29
+  ip prefix 10.25.144.0/25
+  ip prefix 10.25.131.128/26
+  ip prefix 10.25.165.64/26
+  ip prefix 10.25.16.0/27
+  ip prefix 10.25.17.128/28
+  ip prefix 10.25.16.248/29
+  ip prefix 10.25.16.32/27
+  ip prefix 10.25.16.64/27
+  ip prefix 10.25.16.96/27
+  ip prefix 10.25.155.136/29
+  ip prefix 10.25.113.136/29
+  ip prefix 10.25.18.0/27
+  ip prefix 10.25.18.32/27
+  ip prefix 10.25.18.192/29
+  ip prefix 10.25.19.160/28
+  ip prefix 10.25.18.64/27
+  ip prefix 10.25.18.96/27
+exit
+object-group network Global_VCentr
+  description "Servers VMWare VCentr"
+  ip address-range 10.25.161.36
+  ip address-range 10.25.163.20
+exit
+object-group network Global_ServerASDU
+  description "VPN Gateway for Servers ASBU"
+  ip address-range 10.241.10.32
+exit
+object-group network Global_CPEventia
+  description "Checkpoint Eventia Servers"
+  ip address-range 10.25.153.3
+  ip address-range 10.25.152.3
+  ip address-range 10.25.156.17
+  ip address-range 10.25.154.3
+  ip address-range 10.25.155.2
+  ip address-range 10.25.157.3
+  ip address-range 10.25.158.3
+exit
+object-group network Global_HPDataProtector
+  description "Servers Backup HP DataProtector"
+  ip address-range 10.25.163.17
+  ip address-range 10.25.161.33
+  ip address-range 10.25.27.80
+exit
+object-group network Global_ILO
+  description "Interface ILO Servers"
+  ip address-range 10.25.254.38
+  ip address-range 10.25.254.39
+  ip address-range 10.25.100.64
+  ip address-range 10.25.112.147
+  ip address-range 10.25.112.148
+  ip address-range 10.25.150.172
+  ip address-range 10.25.150.173
+  ip address-range 10.25.150.174
+  ip address-range 10.25.64.28
+  ip address-range 10.25.64.29
+  ip address-range 10.25.64.30
+  ip address-range 10.25.64.31
+  ip address-range 10.25.169.5
+  ip address-range 10.25.169.7
+  ip address-range 10.25.169.8
+  ip address-range 10.25.144.118
+  ip address-range 10.25.144.122
+  ip address-range 10.25.144.124
+  ip address-range 10.25.144.125
+  ip address-range 10.25.45.21
+  ip address-range 10.25.158.68
+  ip address-range 10.25.158.69
+  ip address-range 10.25.152.69
+  ip prefix 10.25.179.0/24
+  ip prefix 10.25.45.80/28
+  ip prefix 10.25.131.128/26
+  ip prefix 10.25.131.192/28
+exit
+object-group network Global_GUARDANT
+  description "Servers include keys GUARDANT"
+  ip address-range 10.25.161.9
+  ip address-range 10.25.165.73
+  ip address-range 10.25.163.19
+  ip address-range 10.25.9.2
+  ip address-range 10.25.174.154
+  ip address-range 10.25.144.6
+  ip address-range 10.25.163.67
+exit
+object-group network Global_DLP
+  description "Servers DLP"
+  ip address-range 10.25.156.23
+exit
+object-group network Global_StroyKons
+  description "Servers IS Stroy Konsultant"
+  ip address-range 10.25.165.73
+exit
+object-group network Global_LanDocs
+  description "Servers IS LanDocs"
+  ip address-range 10.25.161.38
+  ip address-range 10.25.161.39
+  ip address-range 10.25.161.46
+exit
+object-group network Global_1C
+  description "Servers IS 1C"
+  ip address-range 10.25.174.210
+  ip address-range 10.25.174.211
+  ip address-range 10.25.160.131
+  ip address-range 10.25.161.67
+  ip address-range 10.25.240.251
+  ip address-range 10.25.163.69
+  ip address-range 10.25.163.9
+  ip address-range 10.25.174.226
+  ip address-range 10.25.163.33
+  ip address-range 10.25.161.75
+  ip address-range 10.25.163.23
+  ip address-range 10.25.162.3
+  ip address-range 10.25.163.21
+  ip address-range 10.25.163.67
+  ip address-range 10.25.163.72
+  ip address-range 10.25.163.19
+  ip address-range 10.25.163.35
+  ip address-range 10.25.161.17
+  ip address-range 10.25.161.22
+  ip address-range 10.25.161.65
+  ip address-range 10.25.169.36
+exit
+object-group network Global_LinuxServers
+  description "Servers Linux for Development"
+  ip address-range 10.25.161.61
+  ip address-range 10.25.161.70
+exit
+object-group network Global_SQL
+  description "Servers SQL"
+  ip address-range 10.25.144.17
+  ip address-range 10.25.19.62
+  ip address-range 10.25.161.123
+  ip address-range 10.25.163.50
+  ip address-range 10.25.161.17
+  ip address-range 10.25.161.20
+  ip address-range 10.25.163.21
+  ip address-range 10.25.163.24
+  ip address-range 10.25.174.66
+  ip address-range 10.25.163.33
+  ip address-range 10.25.163.23
+exit
+object-group network Global_SMTS
+  description "Servers SMTS"
+  ip address-range 10.25.240.251
+exit
+object-group network Global_KSZI
+  description "Servers KSZI"
+  ip prefix 10.25.152.0/26
+  ip prefix 10.25.153.0/26
+  ip prefix 10.25.154.0/26
+  ip prefix 10.25.155.0/26
+  ip prefix 10.25.156.0/26
+  ip prefix 10.25.157.0/26
+  ip prefix 10.25.158.0/26
+  ip prefix 10.25.112.0/28
+exit
+object-group network Global_SHIT
+  description "Servers IS SHIT"
+  ip address-range 10.25.174.203
+exit
+object-group network Global_AdminKSZI
+  description "ARM Administrators KSZI"
+  ip address-range 10.25.141.13
+  ip address-range 10.25.141.30
+  ip address-range 10.25.141.37
+  ip address-range 10.25.141.39
+  ip address-range 10.25.143.52
+  ip address-range 10.25.143.56
+  ip address-range 10.25.100.100
+  ip prefix 10.25.45.96/28
+  ip prefix 10.25.45.112/28
+  ip prefix 10.25.112.0/28
+exit
+object-group network Global_MSSC
+  description "Servers MS system center"
+  ip address-range 10.25.161.64
+exit
+object-group network Global_InfraMan
+  description "Servers IS Inframanager"
+  ip address-range 10.25.161.22
+exit
+object-group network Global_RRLHost
+  description "Hosts RRL"
+  ip address-range 10.25.186.36
+  ip address-range 10.25.180.205
+  ip address-range 10.25.186.20
+  ip address-range 10.25.131.250
+  ip address-range 10.25.131.120
+  ip address-range 10.25.114.74
+  ip address-range 10.25.113.156
+  ip address-range 10.25.131.228
+  ip address-range 10.25.114.70
+  ip address-range 10.25.186.37
+  ip address-range 10.25.180.206
+  ip address-range 10.25.186.21
+  ip address-range 10.25.131.251
+  ip address-range 10.25.131.121
+  ip address-range 10.25.114.71
+  ip address-range 10.25.113.157
+  ip address-range 10.25.186.38
+  ip address-range 10.25.180.207
+  ip address-range 10.25.131.246
+  ip address-range 10.25.131.124
+  ip address-range 10.25.114.76
+  ip address-range 10.25.180.208
+  ip address-range 10.25.131.125
+  ip prefix 10.25.187.0/24
+exit
+object-group network Global_RRLARM
+  description "ARM Management RRL"
+  ip address-range 10.25.186.41
+  ip address-range 10.25.180.216
+  ip address-range 10.25.131.253
+  ip address-range 10.25.131.126
+  ip address-range 10.25.114.75
+  ip address-range 10.25.187.5
+exit
+object-group network Global_Acronis
+  description "Servers Acronis"
+  ip address-range 10.25.156.3
+  ip address-range 10.25.163.34
+exit
+object-group network Global_BlockHostNet
+  description "Servers BlockHostNetwork"
+  ip address-range 10.25.152.4
+exit
+object-group network Icinga
+  description "Servers Icinga2"
+  ip address-range 10.25.226.109
+  ip address-range 10.25.174.44
+exit
+object-group network ARM_Admins_RSPD
+  description "ARM Administrators RSPD"
+  ip prefix 10.25.45.48/28
+exit
+object-group network CMA
+  description "CMA Gazpromsvyaz and GDA Checkpoint"
+  ip address-range 10.250.1.29
+  ip address-range 10.250.1.32
+  ip address-range 10.25.254.36
+  ip address-range 10.25.138.202
+  ip address-range 10.25.138.203
+  ip address-range 10.25.138.204
+  ip address-range 10.25.255.52
+  ip address-range 10.25.255.53
+  ip address-range 10.25.255.54
+  ip address-range 10.25.43.252
+  ip address-range 10.25.43.253
+  ip address-range 10.25.43.254
+exit
+object-group network OpenMCU
+  description "VKS OpenMCU"
+  ip address-range 10.25.41.2
+exit
+object-group network Tunnels
+  description "tunnels"
+  ip prefix 10.25.147.0/24
+exit

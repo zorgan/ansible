@@ -1,0 +1,6 @@
+---
+- name: Reload Samba services
+  service:
+    name: "{{ item }}"
+    state: reloaded
+  with_items: "{{ samba_services }}"

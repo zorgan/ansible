@@ -1,0 +1,21 @@
+---
+- name: samba folders exist
+  file:
+    path: "/etc/samba/"
+    state: directory 
+    owner: root
+    group: root
+  tags:
+    - samba
+
+- name: create smb config files
+  template:
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+  with_items:
+    - "etc/samba/smb.writelist"
+    - "etc/samba/smb.invalid_users"
+  notify:
+    - Reload Samba services
+  tags:
+    - samba

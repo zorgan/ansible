@@ -1,0 +1,19 @@
+x11-wm/xpra -client -clipboard -lz4 -pulseaudio server
+# required by dev-python/nbformat-4.4.0::gentoo[python_targets_python3_5]
+# required by dev-python/nbconvert-5.2.1::gentoo
+# required by dev-python/notebook-5.0.0::gentoo
+# required by dev-python/ipyparallel-6.0.2-r1::gentoo
+# required by dev-python/ipython-5.4.1::gentoo[smp]
+# required by x11-wm/xpra-2.2.2::gentoo
+# required by xpra (argument)
+>=dev-lang/python-3.5.5:3.5 sqlite
+# required by dev-python/ipython-5.4.1::gentoo[python_targets_python2_7]
+# required by x11-wm/xpra-2.2.2::gentoo
+# required by xpra (argument)
+>=dev-lang/python-2.7.14-r1:2.7 sqlite
+# required by x11-wm/xpra-2.2.2::gentoo[server]
+# required by xpra (argument)
+>=x11-base/xorg-server-1.19.5-r2 xvfb
+# required by app-text/evince-3.24.2-r1::gentoo
+# required by evince (argument)
+>=app-text/poppler-0.62.0-r1 cairo

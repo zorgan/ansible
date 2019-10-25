@@ -1,0 +1,4 @@
+media-video/ffmpeg  cpu_flags_x86_mmxext x264
+# required by www-client/palemoon-bin-28.2.1::palemoon
+# required by www-client/palemoon-bin (argument)
+>=virtual/ffmpeg-9-r2 x264

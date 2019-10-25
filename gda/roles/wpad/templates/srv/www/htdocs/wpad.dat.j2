@@ -1,0 +1,16 @@
+function FindProxyForURL(url, host)
+{
+        var i=0;
+        var SBDI_array = [{{ sbdi_array }}]
+        for (i=SBDI_array.length-1;i>=0;--i)
+        {
+        if (myIpAddress()==SBDI_array[i]) {return "PROXY {{ http_proxy }};";}
+        }
+        var White_list=[{{ whitelist }}]
+        for (i = White_list.length-1; i>=0;--i)
+        {
+        if (shExpMatch(host,White_list[i])){return "PROXY {{ http_proxy }}";}
+        }
+        return "DIRECT";
+
+}

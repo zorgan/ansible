@@ -1,0 +1,10 @@
+# required by net-misc/curl-7.59.0::gentoo
+# required by dev-python/pycurl-7.43.0::gentoo
+# required by www-servers/tornado-4.5.3::gentoo
+# required by dev-python/notebook-5.0.0::gentoo
+# required by dev-python/ipyparallel-6.0.2-r1::gentoo
+# required by dev-python/ipython-5.4.1::gentoo[smp]
+# required by x11-wm/xpra-2.2.2::gentoo
+# required by xpra (argument)
+#=dev-libs/openssl-1.0.2o-r6 ~amd64
+x11-wm/xpra ~amd64

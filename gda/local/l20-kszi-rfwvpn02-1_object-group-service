@@ -1,0 +1,377 @@
+object-group service GlobalS_DHCPS_TCP
+  description "Replication DHCP Servers TCP"
+  port-range 647
+exit
+object-group service GlobalS_KAVServ_UDP
+  description "Kaspersky Service to Server UDP"
+  port-range 13000
+  port-range 15000
+exit
+object-group service GlobalS_DHCP_UDP
+  description "DHCP Service UDP"
+  port-range 67
+  port-range 68
+exit
+object-group service GlobalS_KAVServ_TCP
+  description "Kaspersky Service to Server TCP"
+  port-range 13000
+  port-range 14000
+  port-range 80
+  port-range 13291
+  port-range 13292
+exit
+object-group service GlobalS_KAVClient_TCP
+  description "Kaspersky Service to Client TCP"
+  port-range 445
+  port-range 139
+  port-range 13000
+  port-range 14000
+  port-range 13291
+  port-range 13292
+exit
+object-group service GlobalS_KAVClient_UDP
+  description "Kaspersky Service to Client UDP"
+  port-range 137
+  port-range 138
+  port-range 13000
+  port-range 15000
+exit
+object-group service GlobalS_WSUS_TCP
+  description "WSUS Service TCP"
+  port-range 445
+  port-range 135
+  port-range 139
+  port-range 80
+exit
+object-group service GlobalS_WEB_RSPD_TCP
+  description "Access to WEB Service TCP"
+  port-range 80
+  port-range 443
+exit
+object-group service GlobalS_Proxy_RSPD_TCP
+  description "Access to Internet Service TCP"
+  port-range 3328
+  port-range 3329
+  port-range 80
+  port-range 22
+  port-range 139
+  port-range 445
+  port-range 88
+exit
+object-group service GlobalS_Regionmedia_TCP
+  description "Access to RegionMedia Servers TCP"
+  port-range 11000
+  port-range 21
+  port-range 80
+exit
+object-group service GlobalS_Regionmedia_UDP
+  description "Access to RegionMedia Servers UDP"
+  port-range 500
+  port-range 4500
+exit
+object-group service GlobalS_Samba_TCP
+  description "Access to Samba Service TCP"
+  port-range 445
+  port-range 135
+  port-range 139
+exit
+object-group service GlobalS_Mail_RSPD_TCP
+  description "Access to Mail Service TCP"
+  port-range 25
+  port-range 80
+  port-range 110
+  port-range 135
+  port-range 143
+  port-range 465
+  port-range 993
+  port-range 995
+  port-range 1159
+  port-range 1140
+  port-range 587
+  port-range 6005-65535
+exit
+object-group service GlobalS_Print_TCP
+  description "Access to Print Service TCP"
+  port-range 515
+  port-range 9100
+  port-range 445
+exit
+object-group service GlobalS_Print_UDP
+  description "Access to Print Service UDP"
+  port-range 161
+exit
+object-group service GlobalS_BlockHostMDZ_TCP
+  description "Access to BlockHost MDZ Service TCP"
+  port-range 2001
+  port-range 26000
+  port-range 26001
+exit
+object-group service GlobalS_BlockHostMDZ_UDP
+  description "Access to BlockHost MDZ Service UDP"
+  port-range 32000
+  port-range 32001
+exit
+object-group service GlobalS_NetworkManService_TCP
+  description "Service Management RSPD TCP"
+  port-range 8443
+  port-range 8082
+  port-range 22
+  port-range 9102
+  port-range 9103
+  port-range 23
+  port-range 21
+  port-range 49
+  port-range 5666
+  port-range 12489
+  port-range 9080
+  port-range 5001
+  port-range 5201
+  port-range 5665
+  port-range 902
+  port-range 10443
+  port-range 11758
+  port-range 8006
+  port-range 9443
+  port-range 5002
+  port-range 13291
+  port-range 17988
+  port-range 17990
+exit
+object-group service GlobalS_NetworkManService_UDP
+  description "Service Management RSPD UDP"
+  port-range 161
+  port-range 162
+  port-range 69
+  port-range 514
+  port-range 1812
+  port-range 1813
+  port-range 9996
+exit
+object-group service GlobalS_Help_TCP
+  description "Access to Help Administrator TCP"
+  port-range 1025-5000
+  port-range 135
+  port-range 49152-65535
+  port-range 5900
+exit
+object-group service GlobalS_Help_UDP
+  description "Access to Help Administrator UDP"
+  port-range 49152-65535
+exit
+object-group service GlobalS_SOPandIS_TCP
+  description "Access to Server SOP and IS TCP"
+  port-range 445
+  port-range 135
+  port-range 139
+  port-range 49152-65535
+  port-range 1025-5000
+exit
+object-group service GlobalS_ServersManService_TCP
+  description "Service Management Servers TCP"
+  port-range 21
+  port-range 22
+  port-range 23
+  port-range 135
+  port-range 8080
+  port-range 50000
+exit
+object-group service GlobalS_ServersManService_UDP
+  description "Service Management Servers UDP"
+  port-range 69
+  port-range 161
+  port-range 162
+  port-range 514
+  port-range 49152-65535
+exit
+object-group service GlobalS_ESXi_TCP
+  description "Access to Management ESXi TCP"
+  port-range 22
+  port-range 5988
+  port-range 5989
+  port-range 8443
+  port-range 9443
+  port-range 10443
+  port-range 8080
+  port-range 902
+  port-range 427
+  port-range 8182
+  port-range 9002
+  port-range 8084
+  port-range 9084
+exit
+object-group service GlobalS_ESXi_UDP
+  description "Access to Management ESXi UDP"
+  port-range 8182
+  port-range 902
+  port-range 427
+exit
+object-group service GlobalS_IKE_UDP
+  description "IPSec services UDP"
+  port-range 500
+exit
+object-group service GlobalS_CPEvent_TCP
+  description "Checkpoint Eventia TCP"
+  port-range 18187
+exit
+object-group service GlobalS_HPDataProtector_TCP
+  description "Service Backup HP DataProtector TCP"
+  port-range 42000-42100
+  port-range 5555
+exit
+object-group service GlobalS_BlockHostNet_TCP
+  description "Access to BlockHost Network Service TCP"
+  port-range 999
+exit
+object-group service GlobalS_BlockHostNet_UDP
+  description "Access to BlockHost Network Service UDP"
+  port-range 5555
+exit
+object-group service GlobalS_ILO_TCP
+  description "Access to ILO interface servers TCP"
+  port-range 22
+  port-range 23
+  port-range 3389
+  port-range 17988
+  port-range 17990
+exit
+object-group service GlobalS_ISSmetaBagira_TCP
+  description "Access to IS Smeta Bagira TCP"
+  port-range 3182-3185
+exit
+object-group service GlobalS_ISSmetaBagira_UDP
+  description "Access to IS Smeta Bagira UDP"
+  port-range 475
+  port-range 3183-3184
+exit
+object-group service GlobalS_Infowatch_TCP
+  description "Access to service control Infowatch TCP"
+  port-range 8000
+  port-range 15003
+  port-range 15004
+  port-range 15101
+  port-range 15505
+  port-range 15506
+exit
+object-group service GlobalS_Infowatch_UDP
+  description "Access to service control Infowatch UDP"
+  port-range 15100
+exit
+object-group service GlobalS_ISStroyKons_TCP
+  description "Access to IS Stroy Konsultant TCP"
+  port-range 1947
+  port-range 19816
+exit
+object-group service GlobalS_ISStroyKons_UDP
+  description "Access to IS Stroy Konsultant UDP"
+  port-range 1947
+exit
+object-group service GlobalS_LanDocs_TCP
+  description "Access to IS LanDocs TCP"
+  port-range 445
+  port-range 1134
+  port-range 135
+  port-range 3870
+  port-range 3907
+  port-range 1433
+  port-range 1500
+  port-range 53908
+  port-range 52144
+  port-range 52168
+exit
+object-group service GlobalS_LanDocs_UDP
+  description "Access to IS LanDocs UDP"
+  port-range 1434
+exit
+object-group service GlobalS_1C_TCP
+  description "Access to IS 1C TCP"
+  port-range 1540
+  port-range 1541
+  port-range 1560-1691
+  port-range 11997-12002
+exit
+object-group service GlobalS_1C_UDP
+  description "Access to IS 1C UDP"
+  port-range 475
+  port-range 15200
+exit
+object-group service GlobalS_ISLinux_TCP
+  description "Access to IS in servers Linux TCP"
+  port-range 22
+  port-range 5432
+  port-range 5900-5906
+exit
+object-group service GlobalS_SQL_TCP
+  description "Access to servers SQL TCP"
+  port-range 1433
+exit
+object-group service GlobalS_SQL_UDP
+  description "Access to servers SQL UDP"
+  port-range 1434
+exit
+object-group service GlobalS_SMTS_TCP
+  description "Access to server SMTS TCP"
+  port-range 6501
+  port-range 1433
+exit
+object-group service GlobalS_KSZILinux_TCP
+  description "Access to servers KSZI Linux TCP"
+  port-range 22
+  port-range 82
+  port-range 83
+  port-range 8006
+  port-range 13291
+  port-range 20000
+exit
+object-group service GlobalS_ISSHIT_TCP
+  description "Access to IS SHIT TCP"
+  port-range 12345
+exit
+object-group service GlobalS_MSSysCentr_TCP
+  description "Access from ARM to MS System Centr TCP"
+  port-range 10123
+exit
+object-group service GlobalS_ISInframan_TCP
+  description "Access to IS Inframanager TCP"
+  port-range 8089
+  port-range 1433
+  port-range 1947
+  port-range 9010
+  port-range 9012
+  port-range 9013
+  port-range 9014
+exit
+object-group service GlobalS_RRL_TCP
+  description "Access to management RRL C-Node and ENE-04 TCP"
+  port-range 9900
+  port-range 23
+exit
+object-group service GlobalS_KasperMail_TCP
+  description "Access Mail servers Kasperskiy Security for Microsoft Exchange Server TCP"
+  port-range 13100
+exit
+object-group service GlobalS_Acronis_TCP
+  description "Access to Backup servers Acronis TCP"
+  port-range 7780
+  port-range 9877
+exit
+object-group service IcingaMySQLGalera_TCP
+  description "Replication Servers Galera MySQL Icinga2"
+  port-range 3306
+  port-range 4567
+  port-range 4568
+  port-range 4444
+exit
+object-group service CMA_TCP
+  description "Checkpoint CMA"
+  port-range 18190
+exit
+object-group service SIP
+  description "SIP OpenMCU"
+  port-range 5000-6000
+exit
+object-group service IKE500
+  port-range 500
+exit
+object-group service IKE4500
+  port-range 4500
+exit

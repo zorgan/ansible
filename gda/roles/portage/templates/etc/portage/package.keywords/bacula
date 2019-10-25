@@ -1,0 +1,2 @@
+# required by =bacula-5.2.13-r5 (argument)
+=app-backup/bacula-5.2.13-r5 ~amd64

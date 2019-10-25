@@ -1,0 +1,5 @@
+---
+- name: Deploy wpad
+  include: deploy.yml
+  tags:
+    - deploy

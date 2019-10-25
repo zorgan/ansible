@@ -1,0 +1,1028 @@
+security zone-pair RSPD self
+  rule 10
+    action permit
+    match protocol ospf
+    match source-address any
+    match destination-address any
+    enable
+  exit
+  rule 20
+    action permit log
+    match protocol ah
+    match source-address any
+    match destination-address any
+    enable
+  exit
+  rule 30
+    action permit
+    match protocol vrrp
+    match source-address any
+    match destination-address any
+    enable
+  exit
+  rule 40
+    action permit
+    match protocol udp
+    match source-address any
+    match destination-address any
+    match source-port any
+    match destination-port GlobalS_DHCP_UDP
+    enable
+  exit
+  rule 50
+    action permit
+    match protocol gre
+    match source-address any
+    match destination-address any
+    enable
+  exit
+  rule 60
+    action permit
+    match protocol udp
+    match source-address any
+    match destination-address any
+    match source-port any
+    match destination-port IKE500
+    enable
+  exit
+  rule 70
+    action permit
+    match protocol udp
+    match source-address any
+    match destination-address any
+    match source-port any
+    match destination-port IKE4500
+    enable
+  exit
+exit
+security zone-pair RSPD RSPD
+  rule 10
+    action permit
+    match protocol ospf
+    match source-address any
+    match destination-address any
+    enable
+  exit
+  rule 50
+    action permit
+    match protocol gre
+    match source-address any
+    match destination-address any
+    enable
+  exit
+exit
+security zone-pair any any
+  rule 10
+    description "Access to DHCP Service"
+    action permit
+    match protocol udp
+    match source-address Global_DHCP_Relay
+    match destination-address Global_DHCP
+    match source-port any
+    match destination-port GlobalS_DHCP_UDP
+    enable
+  exit
+  rule 20
+    description "Access to DHCP Service"
+    action permit
+    match protocol udp
+    match source-address Global_DHCP
+    match destination-address Global_DHCP_Relay
+    match source-port any
+    match destination-port GlobalS_DHCP_UDP
+    enable
+  exit
+  rule 30
+    description "Replication DHCP Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_DHCP
+    match destination-address Global_DHCP
+    match source-port any
+    match destination-port GlobalS_DHCPS_TCP
+    enable
+  exit
+  rule 40
+    description "Deny"
+    action deny log
+    match protocol any
+    match source-address any
+    match destination-address Global_Deny
+    enable
+  exit
+  rule 50
+    description "Access to Kasperskiy Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_KAV
+    match source-port any
+    match destination-port GlobalS_KAVServ_TCP
+    enable
+  exit
+  rule 51
+    description "Access to Kasperskiy Servers"
+    action permit
+    match protocol udp
+    match source-address Global_RSPDGDA
+    match destination-address Global_KAV
+    match source-port any
+    match destination-port GlobalS_KAVServ_UDP
+    enable
+  exit
+  rule 60
+    description "Access from Kasperskiy Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_KAV
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_KAVClient_TCP
+    enable
+  exit
+  rule 61
+    description "Access from Kasperskiy Servers"
+    action permit
+    match protocol udp
+    match source-address Global_KAV
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_KAVClient_UDP
+    enable
+  exit
+  rule 70
+    description "Access to AD Controllers"
+    action permit
+    match protocol any
+    match source-address Global_RSPDGDA
+    match destination-address Global_ADControllers
+    enable
+  exit
+  rule 80
+    description "Access from AD Controllers"
+    action permit
+    match protocol any
+    match source-address Global_ADControllers
+    match destination-address Global_RSPDGDA
+    enable
+  exit
+  rule 90
+    description "Access to WSUS Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_WSUS
+    match source-port any
+    match destination-port GlobalS_WSUS_TCP
+    enable
+  exit
+  rule 100
+    description "Access from OPO Kiosk to Servers Kiosk"
+    action permit
+    match protocol tcp
+    match source-address Global_Kiosk
+    match destination-address Global_ServersKiosk
+    match source-port any
+    match destination-port GlobalS_WEB_RSPD_TCP
+    enable
+  exit
+  rule 110
+    description "Deny from OPO Kiosk to Any"
+    action deny log
+    match protocol any
+    match source-address Global_Kiosk
+    match destination-address any
+    enable
+  exit
+  rule 120
+    description "Access from secure ARM to Service Internet"
+    action permit
+    match protocol tcp
+    match source-address Global_SecureARM
+    match destination-address Global_Proxy
+    match source-port any
+    match destination-port GlobalS_Proxy_RSPD_TCP
+    enable
+  exit
+  rule 130
+    description "Access from secure ARM CKV to Servers RegionMedia"
+    action permit
+    match protocol tcp
+    match source-address Global_SecureARM_CKV
+    match destination-address Global_RegionMedia
+    match source-port any
+    match destination-port GlobalS_Regionmedia_TCP
+    enable
+  exit
+  rule 131
+    description "Access from secure ARM CKV to Servers RegionMedia"
+    action permit
+    match protocol udp
+    match source-address Global_SecureARM_CKV
+    match destination-address Global_RegionMedia
+    match source-port any
+    match destination-port GlobalS_Regionmedia_UDP
+    enable
+  exit
+  rule 140
+    description "Access from secure ARM SIUS to Development Servers in Internet"
+    action permit
+    match protocol tcp
+    match source-address Global_SecureARM_ACG2
+    match destination-address Global_ServerSOPDevel
+    match source-port any
+    match destination-port GlobalS_Samba_TCP
+    enable
+  exit
+  rule 150
+    description "Deny from secure ARM to Any"
+    action deny log
+    match protocol any
+    match source-address Global_SecureARM
+    match destination-address any
+    enable
+  exit
+  rule 160
+    description "Access to service Internet"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_Proxy
+    match source-port any
+    match destination-port GlobalS_Proxy_RSPD_TCP
+    enable
+  exit
+  rule 170
+    description "Access to WEB service"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_EVSPD
+    match source-port any
+    match destination-port GlobalS_WEB_RSPD_TCP
+    enable
+  exit
+  rule 180
+    description "ICMP service"
+    action permit
+    match protocol icmp
+    match source-address Global_RSPDGDA
+    match destination-address Global_RSPDGDA
+    enable
+  exit
+  rule 190
+    description "Access to mail service"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_Mail
+    match source-port any
+    match destination-port GlobalS_Mail_RSPD_TCP
+    enable
+  exit
+  rule 200
+    description "Access to printers service"
+    action permit
+    match protocol tcp
+    match source-address Global_Print
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_Print_TCP
+    enable
+  exit
+  rule 201
+    description "Access to printers service"
+    action permit
+    match protocol udp
+    match source-address Global_Print
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_Print_UDP
+    enable
+  exit
+  rule 210
+    description "Access from printservers to printers"
+    action permit
+    match protocol tcp
+    match source-address Global_Print
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_Print_TCP
+    enable
+  exit
+  rule 211
+    description "Access from printservers to printers"
+    action permit
+    match protocol udp
+    match source-address Global_Print
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_Print_UDP
+    enable
+  exit
+  rule 220
+    description "Service BlockHost MDZ"
+    action permit
+    match protocol tcp
+    match source-address Global_BlockHostMDZ
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_BlockHostMDZ_TCP
+    enable
+  exit
+  rule 221
+    description "Service BlockHost MDZ"
+    action permit
+    match protocol udp
+    match source-address Global_BlockHostMDZ
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_BlockHostMDZ_UDP
+    enable
+  exit
+  rule 230
+    description "Service BlockHost MDZ"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_BlockHostMDZ
+    match source-port any
+    match destination-port GlobalS_BlockHostMDZ_TCP
+    enable
+  exit
+  rule 231
+    description "Service BlockHost MDZ"
+    action permit
+    match protocol udp
+    match source-address Global_RSPDGDA
+    match destination-address Global_BlockHostMDZ
+    match source-port any
+    match destination-port GlobalS_BlockHostMDZ_UDP
+    enable
+  exit
+  rule 240
+    description "Access from Network Manadgement System to Network Hosts"
+    action permit
+    match protocol tcp
+    match source-address Global_NetManServers
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_NetworkManService_TCP
+    enable
+  exit
+  rule 241
+    description "Access from Network Manadgement System to Network Hosts"
+    action permit
+    match protocol udp
+    match source-address Global_NetManServers
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_NetworkManService_UDP
+    enable
+  exit
+  rule 250
+    description "Access from Network Hosts to Network Manadgement System"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_NetManServers
+    match source-port any
+    match destination-port GlobalS_NetworkManService_TCP
+    enable
+  exit
+  rule 251
+    description "Access from Network Hosts to Network Manadgement System"
+    action permit
+    match protocol udp
+    match source-address Global_RSPDGDA
+    match destination-address Global_NetManServers
+    match source-port any
+    match destination-port GlobalS_NetworkManService_UDP
+    enable
+  exit
+  rule 260
+    description "WSUS Replication"
+    action permit
+    match protocol tcp
+    match source-address Global_WSUS
+    match destination-address Global_WSUS
+    match source-port any
+    match destination-port GlobalS_Samba_TCP
+    enable
+  exit
+  rule 270
+    description "Remote Help"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_Help_TCP
+    enable
+  exit
+  rule 271
+    description "Remote Help"
+    action permit
+    match protocol udp
+    match source-address Global_RSPDGDA
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_Help_UDP
+    enable
+  exit
+  rule 280
+    description "Access to Servers IS and SOP"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_ServersGDA
+    match source-port any
+    match destination-port GlobalS_SOPandIS_TCP
+    enable
+  exit
+  rule 290
+    description "Monitoring Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_ServersMon
+    match destination-address Global_ServersGDA
+    match source-port any
+    match destination-port GlobalS_ServersManService_TCP
+    enable
+  exit
+  rule 291
+    description "Monitoring Servers"
+    action permit
+    match protocol udp
+    match source-address Global_ServersMon
+    match destination-address Global_ServersGDA
+    match source-port any
+    match destination-port GlobalS_ServersManService_UDP
+    enable
+  exit
+  rule 300
+    description "Monitoring Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_ServersGDA
+    match destination-address Global_ServersMon
+    match source-port any
+    match destination-port GlobalS_ServersManService_TCP
+    enable
+  exit
+  rule 301
+    description "Monitoring Servers"
+    action permit
+    match protocol udp
+    match source-address Global_ServersGDA
+    match destination-address Global_ServersMon
+    match source-port any
+    match destination-port GlobalS_ServersManService_UDP
+    enable
+  exit
+  rule 310
+    description "Access Administrators to Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_AdminServers
+    match destination-address Global_ServersMon
+    match source-port any
+    match destination-port GlobalS_ServersManService_TCP
+    enable
+  exit
+  rule 311
+    description "Access Administrators to Servers"
+    action permit
+    match protocol udp
+    match source-address Global_AdminServers
+    match destination-address Global_ServersMon
+    match source-port any
+    match destination-port GlobalS_ServersManService_UDP
+    enable
+  exit
+  rule 320
+    description "Access Administrators to ESXi"
+    action permit
+    match protocol tcp
+    match source-address Global_AdminServers
+    match destination-address Global_ESXi
+    match source-port any
+    match destination-port GlobalS_ESXi_TCP
+    enable
+  exit
+  rule 321
+    description "Access Administrators to ESXi"
+    action permit
+    match protocol udp
+    match source-address Global_AdminServers
+    match destination-address Global_ESXi
+    match source-port any
+    match destination-port GlobalS_ESXi_UDP
+    enable
+  exit
+  rule 330
+    description "Access Administrators to VCentr"
+    action permit
+    match protocol tcp
+    match source-address Global_AdminServers
+    match destination-address Global_VCentr
+    match source-port any
+    match destination-port GlobalS_ESXi_TCP
+    enable
+  exit
+  rule 331
+    description "Access Administrators to VCentr"
+    action permit
+    match protocol udp
+    match source-address Global_AdminServers
+    match destination-address Global_VCentr
+    match source-port any
+    match destination-port GlobalS_ESXi_UDP
+    enable
+  exit
+  rule 340
+    description "Access ESXi to VCentr"
+    action permit
+    match protocol tcp
+    match source-address Global_ESXi
+    match destination-address Global_VCentr
+    match source-port any
+    match destination-port GlobalS_ESXi_TCP
+    enable
+  exit
+  rule 341
+    description "Access ESXi to VCentr"
+    action permit
+    match protocol udp
+    match source-address Global_ESXi
+    match destination-address Global_VCentr
+    match source-port any
+    match destination-port GlobalS_ESXi_UDP
+    enable
+  exit
+  rule 350
+    description "Access VCentr to ESXi"
+    action permit
+    match protocol tcp
+    match source-address Global_VCentr
+    match destination-address Global_ESXi
+    match source-port any
+    match destination-port GlobalS_ESXi_TCP
+    enable
+  exit
+  rule 351
+    description "Access VCentr to ESXi"
+    action permit
+    match protocol udp
+    match source-address Global_VCentr
+    match destination-address Global_ESXi
+    match source-port any
+    match destination-port GlobalS_ESXi_UDP
+    enable
+  exit
+  rule 360
+    description "Access to VPN ASDU"
+    action permit
+    match protocol udp
+    match source-address Global_ServerASDU
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_IKE_UDP
+    enable
+  exit
+  rule 361
+    description "Access to VPN ASDU"
+    action permit
+    match protocol esp
+    match source-address Global_ServerASDU
+    match destination-address Global_RSPDGDA
+    enable
+  exit
+  rule 370
+    description "Checkpoint Eventia"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_CPEventia
+    match source-port any
+    match destination-port GlobalS_CPEvent_TCP
+    enable
+  exit
+  rule 380
+    description "HPDataProtector"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_HPDataProtector
+    match source-port any
+    match destination-port GlobalS_HPDataProtector_TCP
+    enable
+  exit
+  rule 390
+    description "HPDataProtector"
+    action permit
+    match protocol tcp
+    match source-address Global_HPDataProtector
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_HPDataProtector_TCP
+    enable
+  exit
+  rule 400
+    description "BlockHost Network"
+    action permit
+    match protocol tcp
+    match source-address Global_BlockHostNet
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_BlockHostNet_TCP
+    enable
+  exit
+  rule 401
+    description "BlockHost Network"
+    action permit
+    match protocol udp
+    match source-address Global_BlockHostNet
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_BlockHostNet_UDP
+    enable
+  exit
+  rule 410
+    description "BlockHost Network"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_BlockHostNet
+    match source-port any
+    match destination-port GlobalS_BlockHostNet_TCP
+    enable
+  exit
+  rule 411
+    description "BlockHost Network"
+    action permit
+    match protocol udp
+    match source-address Global_RSPDGDA
+    match destination-address Global_BlockHostNet
+    match source-port any
+    match destination-port GlobalS_BlockHostNet_UDP
+    enable
+  exit
+  rule 420
+    description "Access Administrators to ILO Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_AdminServers
+    match destination-address Global_ILO
+    match source-port any
+    match destination-port GlobalS_ILO_TCP
+    enable
+  exit
+  rule 430
+    description "Access to IS Smeta Bagira"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_GUARDANT
+    match source-port any
+    match destination-port GlobalS_ISSmetaBagira_TCP
+    enable
+  exit
+  rule 431
+    description "Access to IS Smeta Bagira"
+    action permit
+    match protocol udp
+    match source-address Global_RSPDGDA
+    match destination-address Global_GUARDANT
+    match source-port any
+    match destination-port GlobalS_ISSmetaBagira_UDP
+    enable
+  exit
+  rule 470
+    description "Access to DLP Infowatch"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_DLP
+    match source-port any
+    match destination-port GlobalS_Infowatch_TCP
+    enable
+  exit
+  rule 471
+    description "Access to DLP Infowatch"
+    action permit
+    match protocol udp
+    match source-address Global_RSPDGDA
+    match destination-address Global_DLP
+    match source-port any
+    match destination-port GlobalS_Infowatch_UDP
+    enable
+  exit
+  rule 480
+    description "Access to DLP Infowatch"
+    action permit
+    match protocol tcp
+    match source-address Global_DLP
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_Infowatch_TCP
+    enable
+  exit
+  rule 481
+    description "Access to DLP Infowatch"
+    action permit
+    match protocol udp
+    match source-address Global_DLP
+    match destination-address Global_RSPDGDA
+    match source-port any
+    match destination-port GlobalS_Infowatch_UDP
+    enable
+  exit
+  rule 490
+    description "Access to IS Stroy Konsultant"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_StroyKons
+    match source-port any
+    match destination-port GlobalS_ISStroyKons_TCP
+    enable
+  exit
+  rule 491
+    description "Access to IS Stroy Konsultant"
+    action permit
+    match protocol udp
+    match source-address Global_RSPDGDA
+    match destination-address Global_StroyKons
+    match source-port any
+    match destination-port GlobalS_ISStroyKons_UDP
+    enable
+  exit
+  rule 500
+    description "Access to IS LanDocs"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_LanDocs
+    match source-port any
+    match destination-port GlobalS_LanDocs_TCP
+    enable
+  exit
+  rule 501
+    description "Access to IS LanDocs"
+    action permit
+    match protocol udp
+    match source-address Global_RSPDGDA
+    match destination-address Global_LanDocs
+    match source-port any
+    match destination-port GlobalS_LanDocs_UDP
+    enable
+  exit
+  rule 510
+    description "Access to IS 1C"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_1C
+    match source-port any
+    match destination-port GlobalS_1C_TCP
+    enable
+  exit
+  rule 511
+    description "Access to IS 1C"
+    action permit
+    match protocol udp
+    match source-address Global_RSPDGDA
+    match destination-address Global_1C
+    match source-port any
+    match destination-port GlobalS_1C_UDP
+    enable
+  exit
+  rule 520
+    description "Access Development to Linux Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_LinuxServers
+    match source-port any
+    match destination-port GlobalS_ISLinux_TCP
+    enable
+  exit
+  rule 530
+    description "Access to SQL Service"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_SQL
+    match source-port any
+    match destination-port GlobalS_SQL_TCP
+    enable
+  exit
+  rule 531
+    description "Access to SQL Service"
+    action permit
+    match protocol udp
+    match source-address Global_RSPDGDA
+    match destination-address Global_SQL
+    match source-port any
+    match destination-port GlobalS_SQL_UDP
+    enable
+  exit
+  rule 540
+    description "Access to IS SMTS"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_SMTS
+    match source-port any
+    match destination-port GlobalS_SMTS_TCP
+    enable
+  exit
+  rule 550
+    description "Access Administrators to Servers KSZI"
+    action permit
+    match protocol tcp
+    match source-address Global_AdminKSZI
+    match destination-address Global_KSZI
+    match source-port any
+    match destination-port GlobalS_KSZILinux_TCP
+    enable
+  exit
+  rule 560
+    description "Access to IS SHIT"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_SHIT
+    match source-port any
+    match destination-port GlobalS_ISSHIT_TCP
+    enable
+  exit
+  rule 570
+    description "Access to IS MS System Center"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_MSSC
+    match source-port any
+    match destination-port GlobalS_MSSysCentr_TCP
+    enable
+  exit
+  rule 580
+    description "Access to IS Inframanager"
+    action permit
+    match protocol tcp
+    match source-address Global_RSPDGDA
+    match destination-address Global_InfraMan
+    match source-port any
+    match destination-port GlobalS_ISInframan_TCP
+    enable
+  exit
+  rule 590
+    description "Access Administrators to RRL"
+    action permit
+    match protocol tcp
+    match source-address Global_RRLARM
+    match destination-address Global_RRLHost
+    match source-port any
+    match destination-port GlobalS_RRL_TCP
+    enable
+  exit
+  rule 600
+    description "Kasperskiy from Exchange Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_Mail
+    match destination-address Global_Mail
+    match source-port any
+    match destination-port GlobalS_KasperMail_TCP
+    enable
+  exit
+  rule 610
+    description "Access Acronis to Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_ServersGDA
+    match destination-address Global_Acronis
+    match source-port any
+    match destination-port GlobalS_Acronis_TCP
+    enable
+  exit
+  rule 620
+    description "Access Acronis to Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_Acronis
+    match destination-address Global_ServersGDA
+    match source-port any
+    match destination-port GlobalS_Acronis_TCP
+    enable
+  exit
+  rule 630
+    description "Access Acronis to Servers"
+    action permit
+    match protocol tcp
+    match source-address Global_AdminServers
+    match destination-address Global_Acronis
+    match source-port any
+    match destination-port GlobalS_Acronis_TCP
+    enable
+  exit
+  rule 10000
+    action deny log
+    match protocol any
+    match source-address any
+    match destination-address any
+    enable
+  exit
+exit
+security zone-pair Level50 self
+  rule 10
+    action permit log
+    match protocol ah
+    match source-address any
+    match destination-address any
+    enable
+  exit
+  rule 20
+    action permit
+    match protocol vrrp
+    match source-address any
+    match destination-address any
+    enable
+  exit
+  rule 30
+    action permit
+    match protocol udp
+    match source-address any
+    match destination-address any
+    match source-port any
+    match destination-port GlobalS_DHCP_UDP
+    enable
+  exit
+exit
+security zone-pair Level70 self
+  rule 10
+    action permit log
+    match protocol ah
+    match source-address any
+    match destination-address any
+    enable
+  exit
+  rule 20
+    action permit
+    match protocol vrrp
+    match source-address any
+    match destination-address any
+    enable
+  exit
+exit
+security zone-pair RSPD Level70
+  rule 10
+    action permit
+    match protocol tcp
+    match source-address Icinga
+    match destination-address Icinga
+    match source-port IcingaMySQLGalera_TCP
+    match destination-port IcingaMySQLGalera_TCP
+    enable
+  exit
+  rule 30
+    action permit
+    match protocol udp
+    match source-address OpenMCU
+    match destination-address ARM_Admins_RSPD
+    match source-port SIP
+    match destination-port SIP
+    enable
+  exit
+exit
+security zone-pair Level70 RSPD
+  rule 10
+    action permit
+    match protocol tcp
+    match source-address Icinga
+    match destination-address Icinga
+    match source-port IcingaMySQLGalera_TCP
+    match destination-port IcingaMySQLGalera_TCP
+    enable
+  exit
+  rule 20
+    action permit
+    match protocol tcp
+    match source-address ARM_Admins_RSPD
+    match destination-address CMA
+    match source-port any
+    match destination-port CMA_TCP
+    enable
+  exit
+  rule 30
+    action permit
+    match protocol udp
+    match source-address ARM_Admins_RSPD
+    match destination-address OpenMCU
+    match source-port SIP
+    match destination-port SIP
+    enable
+  exit
+exit

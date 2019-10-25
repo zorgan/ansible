@@ -1,0 +1,11 @@
+---
+- name: Install Palemoon
+  portage:
+    package: =www-client/palemoon-bin-28.7.1
+    state: present
+  environment:
+    http_proxy: http://10.25.254.9:3328
+    https_proxy: http://10.25.254.9:3328
+  tags:
+    - palemoon
+

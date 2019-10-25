@@ -1,0 +1,1 @@
+net-misc/openssh bindist -hpn pam pie ssl X -debug kerberos 

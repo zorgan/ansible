@@ -1,0 +1,5 @@
+# required by x11-drivers/xf86-video-vmware-13.3.0::gentoo
+# required by x11-base/xorg-drivers-1.19::gentoo[video_cards_vmware]
+# required by @selected
+# required by @world (argument)
+>=media-libs/mesa-18.1.6 xa

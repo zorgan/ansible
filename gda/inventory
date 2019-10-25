@@ -1,0 +1,25 @@
+[all:vars]
+# IMPORTANT
+ansible_python_interpreter=/usr/bin/python2.7
+[wpad_target]
+10.25.178.60 ansible_user=adminrspd
+10.25.178.61 ansible_user=adminrspd
+10.25.178.62 ansible_user=adminrspd
+[esr_target]
+10.25.226.104 ansible_user=adminrspd
+[samba_target]
+10.25.178.54 ansible_user=root
+10.25.178.55 ansible_user=root
+10.25.178.56 ansible_user=root
+10.25.178.59 ansible_user=root
+10.25.178.45 ansible_user=root
+[x2go_target]
+10.25.178.54 ansible_user=root
+10.25.178.55 ansible_user=root
+10.25.178.56 ansible_user=root
+10.25.178.59 ansible_user=root
+10.25.178.45 ansible_user=root
+[ios]
+10.25.137.28 ansible_user=zhbalbaev
+[proxy]
+10.25.156.31 ansible_user=root

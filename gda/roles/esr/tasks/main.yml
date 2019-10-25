@@ -1,0 +1,5 @@
+---
+- name: Check ESR config
+  include: deploy.yml
+  tags:
+    - deploy

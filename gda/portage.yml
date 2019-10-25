@@ -1,0 +1,5 @@
+---
+- hosts: x2go_target
+  name: portage playbook
+  roles:
+  - portage

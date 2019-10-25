@@ -1,0 +1,7 @@
+# required by x11-misc/xdg-utils-1.1.1-r1::gentoo
+# required by www-client/google-chrome-59.0.3071.109::gentoo
+# required by www-client/google-chrome (argument)
+>=app-text/xmlto-0.0.26-r1 text
+# required by media-video/vlc-2.2.6::gentoo
+# required by vlc (argument)
+>=sys-libs/zlib-1.2.11 minizip

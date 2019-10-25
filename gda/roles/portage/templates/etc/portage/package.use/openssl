@@ -1,0 +1,7 @@
+#dev-libs/openssl -bindist
+# required by net-misc/openssh-7.7_p1-r9::gentoo[-static,-libressl,ssl]
+# required by net-fs/sshfs-2.8::gentoo
+# required by net-misc/x2goserver-4.0.1.22::gentoo[fuse]
+# required by @selected
+# required by @world (argument)
+>=dev-libs/openssl-1.0.2p bindist

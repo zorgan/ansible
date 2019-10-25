@@ -1,0 +1,8 @@
+# required by x11-libs/gtk+-2.24.31::gentoo
+# required by www-client/firefox-bin-45.6.0::gentoo
+# required by www-client/firefox-bin (argument)
+>=x11-libs/cairo-1.14.6 X
+# required by x11-libs/gtk+-2.24.31::gentoo
+# required by www-client/firefox-bin-45.6.0::gentoo
+# required by www-client/firefox-bin (argument)
+>=x11-libs/gdk-pixbuf-2.34.0 X

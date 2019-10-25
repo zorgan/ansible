@@ -1,0 +1,5 @@
+---
+- hosts: wpad_target
+  name: wpad playbook
+  roles:
+  - wpad

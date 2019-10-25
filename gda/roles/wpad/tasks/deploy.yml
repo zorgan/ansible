@@ -1,0 +1,19 @@
+---
+- name: wpad folders exist
+  file:
+    path: "/srv/www/htdocs/"
+    state: directory 
+    mode: 0755
+    owner: adminrspd
+    group: root
+  tags:
+    - wpad
+
+- name: create wpad config file
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+  with_items:
+    - "srv/www/htdocs/wpad.dat"
+  tags:
+    - wpad

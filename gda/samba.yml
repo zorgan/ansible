@@ -1,0 +1,5 @@
+---
+- hosts: samba_target
+  name: samba playbook
+  roles:
+  - samba

@@ -1,0 +1,70 @@
+---
+- name: emerge-webrsync
+  portage:
+    sync: web
+  environment:
+    http_proxy: http://10.25.254.9:3328
+    https_proxy: http://10.25.254.9:3328
+  tags:
+    - webrsync
+
+- name: update world
+  portage:
+    package: '@world'
+    update: yes
+    deep: yes
+    sync: web
+    exclude: bacula
+  environment:
+    http_proxy: http://10.25.254.9:3328
+    https_proxy: http://10.25.254.9:3328
+  tags:
+    - world
+
+- name: /etc/portage folders exist
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+  loop:
+    - "/etc/portage"
+    - "/etc/portage/package.keywords"
+    - "/etc/portage/package.mask"
+    - "/etc/portage/package.use"
+  tags:
+    - portage
+
+- name: make.conf
+  template:
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+  with_items:
+    - "etc/portage/make.conf"
+  tags:
+    - portage
+
+- name: portage.* folders
+  copy:
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+    owner: root
+    group: root
+    mode: '0644'
+  with_items:
+    - "etc/portage/package.keywords/"
+    - "etc/portage/package.mask/"
+    - "etc/portage/package.use/"
+  tags:
+    - portage
+
+- name: palemoon language pack
+  copy:
+    src: "files/langpack-ru@palemoon.org.xpi"
+    dest: "/etc/skel/.moonchild\ productions/pale\ moon/rlj50g61.default/extensions/langpack-ru@palemoon.org.xpi"
+    owner: root
+    group: root
+    mode: '0644'
+  tags:
+    - portage
+
